@@ -1,0 +1,49 @@
+version: "3.9"
+services:
+  # nerf-pytorch-10:
+  #   build:
+  #     context: .
+  #     dockerfile: docker/nerf-pytorch/nerf-pytorch.Dockerfile
+  #     args:
+  #       USER_WANDB_MODE: ${WANDB_MODE:-offline}
+  #       USER_WANDB_KEY: ${WANDB_KEY:-}
+
+  #   image: nerf:$USERNAME
+  #   user: ${FIXUID:?}:${FIXGID:?}
+  #   volumes:
+  #     - ./src/nerf-pytorch:/home/docker/nerf-pytorch
+  #   ipc: host
+  #   tty: true
+  #   command: ["python3", "run_nerf.py", "--config", "configs/fern_configs/fern_10.txt"]
+  #   deploy:
+  #     resources:
+  #       reservations:
+  #         devices:
+  #         - driver: nvidia
+  #           device_ids: ['0'] # Change to ['0', '1'] to use two GPUs
+  #           capabilities: [gpu]
+
+  # pgp:
+  #   build:
+  #     context: .
+  #     dockerfile: docker/pgp/pgp.Dockerfile
+
+  #   image: pgp:$USERNAME
+
+  #   ipc: host
+  #   tty: true
+  #   user: ${FIXUID:?}:${FIXGID:?}
+
+  #   volumes:
+  #     - ./src/PGP/:/home/docker/pgp/
+  #     - /mnt/scratch/nuscenes_CLEAN:/nuscenes_CLEAN:ro
+  #     - /mnt/scratch/nuscenes_PGP_PREPROCESS:/nuscenes_PGP_PREPROCESS
+  #     - /mnt/scratch/PGP_lr-scheduler.tar:/PGP_lr-scheduler.tar:ro
+
+  #   deploy:
+  #     resources:
+  #       reservations:
+  #         devices:
+  #         - driver: nvidia
+  #           device_ids: ['0'] # Change to ['0', '1'] to use two GPUs
+  #           capabilities: [gpu]
