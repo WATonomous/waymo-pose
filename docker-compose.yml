@@ -1,5 +1,21 @@
 version: "3.9"
 services:
+  tutorial:
+    build:
+      context: .
+      dockerfile: docker/tutorial/tutorial.Dockerfile
+      args:
+        USER_WANDB_MODE: ${WANDB_MODE:-offline}
+        USER_WANDB_KEY: ${WANDB_KEY:-}
+
+    image: tutorial:$USERNAME
+    user: ${FIXUID:?}:${FIXGID:?}
+    volumes:
+      - ./src/tutorial:/home/docker/tutorial
+      - /mnt/wato-drive2/wato-datasets/waymo/perception:/perception
+    ipc: host
+    tty: true
+
   # nerf-pytorch-10:
   #   build:
   #     context: .
@@ -47,3 +63,4 @@ services:
   #         - driver: nvidia
   #           device_ids: ['0'] # Change to ['0', '1'] to use two GPUs
   #           capabilities: [gpu]
+
